@@ -1,4 +1,4 @@
 
 A Famous Framework component
 
-mimic the ios buttons
+mimicing the ios buttons
