@@ -21,7 +21,7 @@ FamousFramework.scene('morgan:morgan', {
               return colors
             },
             'content': function($index, colors){
-                return `<node  id="color">${colors[$index]}</node>`
+                return colors[$index]
             },
             'size': function(btnSizes){
               return [btnSizes,btnSizes]
@@ -51,12 +51,6 @@ FamousFramework.scene('morgan:morgan', {
                  'text-align':'center'
                }
             }
-        },
-        '.test':{
-            '$yeild': '#color',
-            'position': function(){
-                return [100,0]
-            }
         }
     },
     states:{
@@ -79,7 +73,6 @@ FamousFramework.scene('morgan:morgan', {
 
     tree: `<node id="root">
              <node id="icons">
-             <node class="test"></node>
              </node>
            </node>`
 });
