@@ -6,13 +6,15 @@ FamousFramework.scene('morgan:morgan', {
             'size': function(btnSizes, padding, columns, colors){
                var width = padding + (btnSizes + padding) * columns
                //var height = padding + (Math.ceil(colors.length/ columns))*(padding+btnSizes)
-               var height = 400
+               var height = 500
                 return [width, height]
             },
             'style':{
-                'background-color': 'black',
+                'background-image': `url(apple.jpg)`,
                 'perspective': '100px',
-                'border-radius':'10px'
+                'border-radius':'10px',
+                'background-size':'cover',
+                'box-shadow':'0px 0px 5px black'
             }
         },
 
@@ -21,14 +23,16 @@ FamousFramework.scene('morgan:morgan', {
               return colors
             },
             'content': function($index, colors){
-                return colors[$index]
+
+                var newt = ($index===3)? 'orange' : colors[$index];
+                return `<div style="margin-top:56px">${newt}</div>`
             },
             'size': function(btnSizes){
               return [btnSizes,btnSizes]
             },
             'position': function($index, padding, columns, btnSizes, initZ, vert){
                  var xPosition = padding + ($index%columns) * (btnSizes + (padding))
-                 var yPosition = vert + (Math.floor($index / columns))* (vert+btnSizes) 
+                 var yPosition = padding + (Math.floor($index / columns))* (vert+btnSizes) 
                  var zPosition;
                  if($index%columns===3||$index%columns===0){
                     zPosition = initZ*400
@@ -47,26 +51,28 @@ FamousFramework.scene('morgan:morgan', {
             'style': function($index, colors, btnSizes){
                 return {
                 'border-radius': '10px',
-                'background-color': colors[$index],
-                 'text-align':'center'
+                'background': colors[$index],
+                 'text-align':'center',
+                 'color': 'white',
+                 'font-size':'10px',
                }
             }
         }
     },
     states:{
-        colors: ['red',  'green', 'blue',  'green', 'blue', 'yellow', 'maroon','blue', 'yellow', 'maroon', 'orange','green', 'blue', 'yellow', 'maroon', 'orange'],
+        colors: ['red',  'green', 'yellow',  'linear-gradient(red, #f06d06)', 'blue', 'aqua', 'maroon','orange', 'teal', 'deeppink', 'lightskyblue','maroon', 'orangered', 'yellowgreen', 'navy', 'gold'],
         padding: 20,
         btnSizes: 50, 
         columns: 4,
         initZ: 1,
-        vert: 30 
+        vert: 35 
 
     },
     events:{
         '$lifecycle': {
             'post-load': function($state){
                 
-                $state.set('initZ', 0, {duration: 3000, curve: 'inOutExpo'})
+                $state.set('initZ', 0, {duration: 2500, curve: 'inOutExpo'})
             }
         }
     },
