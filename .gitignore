@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+node_modules
+public/v1
+public/famous-framework.development.bundle.js

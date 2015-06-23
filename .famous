@@ -1,0 +1,1 @@
+{"scripts":{"deploy-folder":"public/morgan:morgan","deploy":[["run","snapshot-component","--","-n","morgan:morgan"]],"setup":[["install"],["run","local-only-bootstrap","--","--watchAfterBuild=no"]]}}
